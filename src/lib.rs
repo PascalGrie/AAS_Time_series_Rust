@@ -4,11 +4,10 @@ pub mod AAStimeseries{
 
     use num::complex::Complex;
 
+
     pub struct TimeSeries<T>{
         pub metadata : Metadata,
-        pub internalsegment : Box<Segment::InternalSegment<T>>,
-        pub externalsegment: Segment::ExternalSegment,
-        pub linkedsegment: Segment::LinkedSegment,
+        pub internalsegment : Segment::Segments<T>,
     }
 
     pub struct Metadata{
@@ -22,6 +21,11 @@ pub mod AAStimeseries{
         
         use num::complex::Complex;
 
+        pub enum Segments<T>{
+            internalsegment(InternalSegment<T>),
+            externalsegment(ExternalSegment),
+            linkedsegment(LinkedSegment)
+        }
 
         pub struct InternalSegment<T>{
             pub name: String,
