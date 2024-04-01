@@ -7,8 +7,8 @@ pub mod AAStimeseries{
     pub struct TimeSeries<T>{
         pub metadata : Metadata,
         pub internalsegment : Box<Segment::InternalSegment<T>>,
-        pub externalsegment: ExternalSegment,
-        pub linkedsegment: LinkedSegment,
+        pub externalsegment: Segment::ExternalSegment,
+        pub linkedsegment: Segment::LinkedSegment,
     }
 
     pub struct Metadata{
